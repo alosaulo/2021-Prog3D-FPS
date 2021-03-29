@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HoverBotController : Character
 {
-    public GameObject DeathParticle;
+    public GameObject PrefabDeathBall;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,8 @@ public class HoverBotController : Character
         myHealth.LoseHealth(damage);
         if (myHealth.currentHealth <= 0)
         {
-            Instantiate(DeathParticle, transform.position, Quaternion.identity);
+            Vector3 posInit = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+            Instantiate(PrefabDeathBall, posInit, Quaternion.identity);
             Death();
         }
     }

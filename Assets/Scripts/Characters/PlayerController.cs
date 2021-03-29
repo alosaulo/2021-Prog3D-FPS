@@ -122,4 +122,11 @@ public class PlayerController : Character
             rigidBody.AddForce(Vector3.down * gforce);
     }
 
+    public override void DoDamage(float damage)
+    {
+        Debug.Log("Entrei no player");
+        myHealth.LoseHealth(damage);
+        base.DoDamage(damage);
+    }
+
 }
