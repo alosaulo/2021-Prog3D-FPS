@@ -20,6 +20,7 @@ public class Pistol : Weapon
     {
         if(canShoot == true) { 
             base.Shoot(qtd);
+            GameManager._instance.HUDManager.HUDPistol.SetActualAmmo(currentAmmo);
             RaycastHit ray;
             Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward, Color.cyan, 10f);
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out ray, 10f))
