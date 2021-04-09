@@ -4,11 +4,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-
-    public int maxAmmo;
-
-    public int currentAmmo;
-
+    public Ammo myAmmo;
 
     public float RateOfFire;
 
@@ -16,23 +12,11 @@ public abstract class Weapon : MonoBehaviour
 
     protected bool canShoot;
 
-    public void RecoverAmmo(int gain) {
-        currentAmmo += gain;
-        if (currentAmmo > maxAmmo)
-            currentAmmo = maxAmmo;
-    }
-
-    public void LoseAmmo(int qnt) { 
-        if(currentAmmo > 0){
-            currentAmmo -= qnt;
-        }
-    }
-
     public virtual void Shoot(int qtd) {
-        if(currentAmmo > 0) { 
-            LoseAmmo(qtd);
+        if (myAmmo.currentAmmo > 0) {
+            myAmmo.LoseAmmo(qtd);
         }
-        else if (currentAmmo <= 0) {
+        else if (myAmmo.currentAmmo <= 0) {
             canShoot = false;
         }
     }

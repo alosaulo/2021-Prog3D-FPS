@@ -7,7 +7,7 @@ public class Pistol : Weapon
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameManager._instance.HUDManager.HUDPistol.SetAmmo(myAmmo.maxAmmo, myAmmo.currentAmmo);
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class Pistol : Weapon
     {
         if(canShoot == true) { 
             base.Shoot(qtd);
-            GameManager._instance.HUDManager.HUDPistol.SetActualAmmo(currentAmmo);
+            GameManager._instance.HUDManager.HUDPistol.SetActualAmmo(myAmmo.currentAmmo);
             RaycastHit ray;
             Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward, Color.cyan, 10f);
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out ray, 10f))

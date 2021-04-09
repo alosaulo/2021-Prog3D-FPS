@@ -10,6 +10,7 @@ public abstract class Character : MonoBehaviour
 
     public HealthController myHealth;
 
+    public List<Ammo> myAmmunitions;
     public List<Weapon> myWeapons;
     public int actualWeapon;
 

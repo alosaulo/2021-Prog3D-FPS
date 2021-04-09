@@ -20,4 +20,9 @@ public class HUDWeapon
         txtMaxAmmo.text = value.ToString();
     }
 
+    public void SetAmmo(float max, float actual) {
+        txtActualAmmo.text = actual.ToString();
+        txtMaxAmmo.text = max.ToString();
+    }
+
 }
