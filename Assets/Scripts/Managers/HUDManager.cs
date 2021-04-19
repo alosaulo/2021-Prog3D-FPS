@@ -20,4 +20,19 @@ public class HUDManager : MonoBehaviour
     {
         
     }
+
+    public void UpdateHUD(Ammo ammunition) {
+        switch (ammunition.ammoType)
+        {
+            case AmmoType.Disk:
+                HUDDisk.SetActualAmmo(ammunition.currentAmmo);
+                break;
+            case AmmoType.Bullet:
+                HUDPistol.SetActualAmmo(ammunition.currentAmmo);
+                break;
+            default:
+                break;
+        }
+    }
+
 }

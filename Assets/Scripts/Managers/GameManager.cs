@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject player;
+
     public static GameManager _instance;
 
     public HUDManager HUDManager;
 
     void Awake() {
+        player = GameObject.FindGameObjectWithTag("Player");
         _instance = this;
     }
 

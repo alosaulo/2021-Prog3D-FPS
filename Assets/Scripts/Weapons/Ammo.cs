@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Ammo
 {
+    public AmmoType ammoType;
     public float currentAmmo;
     public float maxAmmo;
 

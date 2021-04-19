@@ -27,8 +27,8 @@ public class Pistol : Weapon
             {
                 if (ray.collider.tag == "Enemy")
                 {
-                    HoverBotController bot = ray.collider.GetComponent<HoverBotController>();
-                    bot.DoDamage(1);
+                    EnemyBehaviour enemy = ray.collider.GetComponent<EnemyBehaviour>();
+                    enemy.DoDamage(1);
                 }
             }
         }

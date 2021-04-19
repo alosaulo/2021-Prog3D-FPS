@@ -5,7 +5,6 @@ using Cinemachine;
 
 public class PlayerController : Character
 {
-    //public Character character;
 
     public Transform Spine;
 
@@ -83,6 +82,7 @@ public class PlayerController : Character
     void Shoot() {
         if (Input.GetButtonDown("Fire")) {
             myWeapons[actualWeapon].Shoot(1);
+            GameManager._instance.HUDManager.UpdateHUD(myWeapons[actualWeapon].myAmmo);
         }
     }
 
