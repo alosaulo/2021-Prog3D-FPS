@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Pistol : Weapon
 {
+    public GameObject prefabProjectilePistol;
+    public Transform originProjectile;
+
     // Start is called before the first frame update
     void Start()
     {
-        GameManager._instance.HUDManager.HUDPistol.SetAmmo(myAmmo.maxAmmo, myAmmo.currentAmmo);
+
     }
 
     // Update is called once per frame
@@ -16,14 +19,18 @@ public class Pistol : Weapon
         CheckCooldown();
     }
 
-    public override void Shoot(int qtd)
+    public override void Shoot()
     {
-        if(canShoot == true) { 
-            base.Shoot(qtd);
-            GameManager._instance.HUDManager.HUDPistol.SetActualAmmo(myAmmo.currentAmmo);
+        if(canShoot == true) {
             RaycastHit ray;
-            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward, Color.cyan, 10f);
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out ray, 10f))
+            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * maxRange, Color.cyan, 1f);
+            
+            bool hit = Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward * maxRange, out ray, maxRange);
+            
+            GameObject GO = Instantiate(prefabProjectilePistol, originProjectile.position, originProjectile.rotation);
+            GO.GetComponent<Projectile>().InitializeProjectile(ray);
+            
+            if (hit)
             {
                 if (ray.collider.tag == "Enemy")
                 {

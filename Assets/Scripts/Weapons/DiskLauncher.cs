@@ -13,7 +13,7 @@ public class DiskLauncher : Weapon
     // Start is called before the first frame update
     void Start()
     {
-        GameManager._instance.HUDManager.HUDDisk.SetAmmo(myAmmo.maxAmmo, myAmmo.currentAmmo);
+
     }
 
     // Update is called once per frame
@@ -22,13 +22,11 @@ public class DiskLauncher : Weapon
         
     }
 
-    public override void Shoot(int qtd)
+    public override void Shoot()
     {
-        base.Shoot(qtd);
         GameObject go = Instantiate(prefabDisk, weaponDisk.transform.position, Quaternion.identity);
         go.GetComponent<Rigidbody>().AddRelativeForce(Camera.main.transform.forward * projectileSpeed);
         weaponDisk.SetActive(false);
-
     }
 
 }

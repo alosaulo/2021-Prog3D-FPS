@@ -60,27 +60,6 @@ Transform:
   m_Father: {fileID: 2165878211652921490}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1424620556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3634502775472972099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5df5dd67c3d47674781c96add9d750a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myAmmo:
-    ammoType: 0
-    currentAmmo: 0
-    maxAmmo: 0
-  RateOfFire: 0
-  prefabDisk: {fileID: 929637386084315060, guid: 3db2cc63346ce0346b93dd88a433af27,
-    type: 3}
-  weaponDisk: {fileID: 1433415820775437866}
-  projectileSpeed: 1000
 --- !u!1 &2165878211652921502
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +88,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2165878211652921502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 451.32166, y: 2.6013925, z: 597.714}
+  m_LocalPosition: {x: 451.32166, y: 2.438, z: 597.714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2165878211473975533}
@@ -142,7 +121,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 2165878211652921502}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.21058655
   m_Height: 1.8
   m_Direction: 1
@@ -233,6 +212,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damping: 0
+--- !u!114 &1424620556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3634502775472972099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df5dd67c3d47674781c96add9d750a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAmmo:
+    ammoType: 0
+    currentAmmo: 0
+    maxAmmo: 0
+  RateOfFire: 0
+  prefabDisk: {fileID: 929637386084315060, guid: 3db2cc63346ce0346b93dd88a433af27,
+    type: 3}
+  weaponDisk: {fileID: 1433415820775437866}
+  projectileSpeed: 1000
 --- !u!1001 &2165878211486361978
 PrefabInstance:
   m_ObjectHideFlags: 0

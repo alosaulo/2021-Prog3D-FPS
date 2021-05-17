@@ -81,8 +81,8 @@ public class PlayerController : Character
 
     void Shoot() {
         if (Input.GetButtonDown("Fire")) {
-            myWeapons[actualWeapon].Shoot(1);
-            GameManager._instance.HUDManager.UpdateHUD(myWeapons[actualWeapon].myAmmo);
+            ShootWeapon(1);
+            GameManager._instance.HUDManager.UpdateHUD(myAmmunitions[ammoIndex]);
         }
     }
 
@@ -93,13 +93,15 @@ public class PlayerController : Character
         float hAxis = Input.GetAxis("Horizontal");
         float vAxis = Input.GetAxis("Vertical");
 
+        myAnimator.SetFloat("Y", vAxis);
+
         mouseY = Mathf.Clamp(mouseY, -90f, 90f);
 
-        rigidBody.AddRelativeForce(Vector3.right * hAxis * speed);
-        rigidBody.AddRelativeForce(Vector3.forward * vAxis * speed);
-        
-        rigidBody.rotation = Quaternion.Euler(rigidBody.rotation.eulerAngles +
-            (Vector3.up * mouseX * rotSpeed));
+        Vector3 move = ((transform.forward * vAxis) + (transform.right * hAxis)) *  speed * Time.deltaTime;
+        Quaternion bRotation = Quaternion.Euler(rigidBody.rotation.eulerAngles + (Vector3.up * mouseX * rotSpeed));
+
+        rigidBody.MovePosition(transform.position + move);
+        transform.rotation = bRotation;
 
         myCamera.transform.localRotation = Quaternion.Euler
             (mouseY, transform.rotation.y, transform.rotation.z);
@@ -118,7 +120,7 @@ public class PlayerController : Character
 
     void Gravity()
     {
-        if(onGround == false)
+        if(onGround == false) { }
             rigidBody.AddForce(Vector3.down * gforce);
     }
 
@@ -127,6 +129,20 @@ public class PlayerController : Character
         Debug.Log("Entrei no player");
         myHealth.LoseHealth(damage);
         base.DoDamage(damage);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Pickup")
+        {
+            Pickup itemPickup = collision.gameObject.GetComponent<Pickup>();
+            itemPickup.PickUp(this);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
     }
 
 }

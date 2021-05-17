@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - FireExplosion
+  - Pickup
   layers:
   - Default
   - TransparentFX
@@ -16,12 +17,12 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - EnemyShoot
   - FirstPersonWeapon
-  - 
-  - 
-  - 
-  - 
+  - Vision
+  - Enemy
+  - Pickup
+  - Projectile
   - 
   - 
   - 

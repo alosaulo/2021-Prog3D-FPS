@@ -17,12 +17,27 @@ public class HealthController
         }
     }
 
-    public void GainHealth() {
+    public void GainHealth(float gain) {
+        /*currentHealth = Mathf.Clamp(currentHealth + gain, 0, maxHealth);*/
+        if (currentHealth + gain > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        else {
+            currentHealth += gain;
+        }
         UpdateHealthImage();
     }
 
     void UpdateHealthImage() {
         healthImage.fillAmount = currentHealth / maxHealth;
+    }
+
+    public bool isHealthFull() {
+        if (currentHealth >= maxHealth)
+            return true;
+        else
+            return false;
     }
 
 }

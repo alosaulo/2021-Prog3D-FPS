@@ -4,22 +4,15 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public Ammo myAmmo;
+    public AmmoType ammoType;
 
     public float RateOfFire;
 
+    public float maxRange;
+
     float countRoF;
 
-    protected bool canShoot;
-
-    public virtual void Shoot(int qtd) {
-        if (myAmmo.currentAmmo > 0) {
-            myAmmo.LoseAmmo(qtd);
-        }
-        else if (myAmmo.currentAmmo <= 0) {
-            canShoot = false;
-        }
-    }
+    public bool canShoot;
 
     protected void CheckCooldown()
     {
@@ -30,5 +23,7 @@ public abstract class Weapon : MonoBehaviour
             }
         }
     }
+
+    public abstract void Shoot();
 
 }

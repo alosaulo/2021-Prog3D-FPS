@@ -14,6 +14,7 @@ public class Ammo
         currentAmmo += gain;
         if (currentAmmo > maxAmmo)
             currentAmmo = maxAmmo;
+        GameManager._instance.HUDManager.UpdateHUD(this);
     }
 
     public void LoseAmmo(int qnt)
@@ -22,6 +23,10 @@ public class Ammo
         {
             currentAmmo -= qnt;
         }
+    }
+
+    public bool isAmmoFull() {
+        return currentAmmo >= maxAmmo;
     }
 
 }

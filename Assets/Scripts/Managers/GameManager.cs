@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public HUDManager HUDManager;
 
+    public DropPickup dropPickup;
+
     void Awake() {
         player = GameObject.FindGameObjectWithTag("Player");
         _instance = this;
